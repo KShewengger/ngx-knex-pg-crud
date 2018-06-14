@@ -1,1 +1,1 @@
-# simple-angular5-knex-crud
+# simple-knex-pg-crud
