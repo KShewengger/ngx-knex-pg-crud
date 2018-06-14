@@ -8,7 +8,8 @@ const router: Router = Router();
 
 
 router.post("/", userApi.addUser);
-router.put("/", userApi.updateUser);
+router.put("/:id", userApi.updateUser);
+router.get("/", userApi.getAllUsers);
 router.get("/:id", userApi.getUser);
 router.delete("/:id", userApi.deleteUser);
 
