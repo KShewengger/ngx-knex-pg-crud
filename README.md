@@ -3,7 +3,7 @@ Simple KnexJS & PostgreSQL CRUD implementation with Angular5 and Node Express
 
 
 #### Main dev tools used:
-`Angular5` `AngularCLI` `NodeJS & ExpressJS` `KnexJS` `PostgreSQL` `Typescript`
+`Angular5` `AngularCLI` `Angular2-MDL` `NodeJS & ExpressJS` `KnexJS` `PostgreSQL` `Typescript`
 
 #### How to run
 ```
