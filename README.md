@@ -8,7 +8,7 @@ Simple KnexJS & PostgreSQL CRUD implementation with Angular5 and Node Express
 #### How to run
 ```
 1.) Create database knex_crud.
-2.) Edit Database credentials on /config/database
+2.) Edit Database credentials on ./knexfile.ts
 3.) Run these following commands:
 
     $ npm run build          - Installs all node modules from backend & frontend
