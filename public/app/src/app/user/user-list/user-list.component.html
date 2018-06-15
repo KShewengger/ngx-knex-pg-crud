@@ -49,7 +49,8 @@
                       mdl-button
                       mdl-ripple
                       mdl-button-type="raised"
-                      mdl-colored="primary">
+                      mdl-colored="primary"
+                      (click)="deleteUser(user.id, user.firstName, user.lastName)">
                 <i class="material-icons">delete</i>
               </button>
             </td>
@@ -60,5 +61,7 @@
   </div>
 
 </div>
+
+<dialog-outlet></dialog-outlet>
 
 

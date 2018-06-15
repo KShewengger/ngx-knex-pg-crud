@@ -46,5 +46,12 @@ export class UserService {
     .map(response => response)
     .catch(err => Observable.throw(err));
   }
+  
+  deleteUser(id: string): Observable<any> {
+    return this.http
+    .delete(`${this.url}/${id}`)
+    .map(response => response)
+    .catch(err => Observable.throw(err));
+  }
 
 }

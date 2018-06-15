@@ -4,7 +4,7 @@ import { RouterModule } from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
-import {MdlModule, MdlSnackbarModule, MdlSnackbarService} from "@angular-mdl/core";
+import { MdlModule, MdlSnackbarModule, MdlSnackbarService, MdlDialogModule, MdlDialogService } from "@angular-mdl/core";
 import { MdlPopoverModule } from "@angular-mdl/popover";
 import { MdlSelectModule } from "@angular-mdl/select";
 
@@ -33,6 +33,7 @@ import { UserRouting } from "./user-routing.module";
     MdlPopoverModule,
     MdlSelectModule,
     MdlSnackbarModule,
+    MdlDialogModule,
     UserRouting
   ],
   providers: [
@@ -40,7 +41,8 @@ import { UserRouting } from "./user-routing.module";
     UserResolver,
     UserListResolver,
     ErrorHandlerService,
-    MdlSnackbarService
+    MdlSnackbarService,
+    MdlDialogService
   ]
 })
 export class UserModule { }
