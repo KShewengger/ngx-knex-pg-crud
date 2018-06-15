@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms";
 
+import { MdlSnackbarService } from "@angular-mdl/core";
+
 import { Gender } from "../../../../../../shared/enums/-index";
 import { Account } from "../../../../../../shared/-index";
 
@@ -26,7 +28,7 @@ export class UserFormComponent implements OnInit {
   users: Account[] = [];
   userId: string;
   
-  isSuccessful: boolean = false;
+  isProcessing: boolean = false;
   
   firstName     = new FormControl("", [ Validators.required, Validators.pattern("([a-zA-Z ])+") ]);
   lastName      = new FormControl("", [ Validators.required, Validators.pattern("([a-zA-Z ])+") ]);
@@ -41,15 +43,13 @@ export class UserFormComponent implements OnInit {
   constructor(private router: Router,
               private fb: FormBuilder,
               private route: ActivatedRoute,
+              private mdlSnackbarService: MdlSnackbarService,
               private userService: UserService,
               private errorHandlerService: ErrorHandlerService) { }
   
   ngOnInit() {
-    const snapshot = this.route.snapshot.data;
-  
-    this.userId = this.route.params["id"];
-    this.user   = snapshot.user;
-    this.users  = snapshot.users;
+    this.userId = this.route.snapshot.params.id;
+    this.users  = this.route.snapshot.data.users;
     
     this.buildForm();
   }
@@ -64,17 +64,19 @@ export class UserFormComponent implements OnInit {
       "gender"       : this.gender
     });
   
-    if (this.userId) this.initializeFormValues(this.user);
+    if (this.userId) this.initializeFormValues();
   }
   
-  initializeFormValues(user: Account): void {
+  initializeFormValues(): void {
+    this.user   = this.route.snapshot.data.user[0];
+    
     this.form.patchValue({
-      "firstName"    : user.firstName,
-      "lastName"     : user.lastName,
-      "emailAddress" : user.emailAddress,
-      "age"          : user.age,
-      "birthday"     : user.birthday,
-      "gender"       : user.gender
+      "firstName"    : this.user.firstName,
+      "lastName"     : this.user.lastName,
+      "emailAddress" : this.user.emailAddress,
+      "age"          : this.user.age,
+      "birthday"     : this.user.birthday,
+      "gender"       : this.user.gender
     });
   }
   
@@ -83,7 +85,24 @@ export class UserFormComponent implements OnInit {
   }
   
   save(user: Account): void {
+    this.isProcessing = true;
+    
+    const action = this.userId ? "update" : "add";
+    
+    this.showSnackbar(action);
+  }
   
+  showSnackbar(action: string): void {
+    const message = action === "add" ? "Successfully Added User" : "Successfully Updated";
+    
+    this.mdlSnackbarService.showSnackbar({
+      message: message,
+      timeout: 1000,
+      action: {
+        handler: () => {},
+        text: 'X'
+      }
+    }).subscribe(() => this.isProcessing = false);
   }
 
 }

@@ -80,6 +80,7 @@
         <button class="text-light-red"
                 mdl-button
                 mdl-ripple
+                [disabled]="isProcessing"
                 [routerLink]="['../']">CANCEL</button>&nbsp;
 
         <button class="text-light-red"
@@ -92,13 +93,8 @@
         </button>
       </div><br/><!--END .mdl-typography--text-center -->
 
-      <p  *ngIf="isSuccessful"
-          class="mdl-typography--text-center"
-          id="success-message">
-        <mdl-icon>done</mdl-icon>
-        Successfully Saved
-      </p>
-
     </form>
   </div>
 </div>
+
+<dialog-outlet></dialog-outlet>
