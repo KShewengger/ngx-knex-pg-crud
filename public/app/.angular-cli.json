@@ -19,6 +19,9 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "assets/css/mdl-blue-light_blue.min.css",
+        "../node_modules/@angular-mdl/select/select.css",
+        "assets/css/material-icons.css",
         "assets/css/global.css"
       ],
       "scripts": [],

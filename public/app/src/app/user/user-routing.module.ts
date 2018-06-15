@@ -8,14 +8,22 @@ import { UserResolver, UserListResolver } from "./user-resolver.service";
 
 const routes: Routes = [
   {
-    path     : "",
-    component: UserListComponent,
-    resolve  : { users: UserListResolver },
+    path      : "",
+    component : UserListComponent,
+    resolve   : { users: UserListResolver },
   },
   {
-    path     : ":id",
-    component: UserFormComponent,
-    resolve  : { user: UserResolver }
+    path      : "new",
+    component : UserFormComponent,
+    resolve   : { users : UserListResolver }
+  },
+  {
+    path      : ":id",
+    component : UserFormComponent,
+    resolve   : {
+      users : UserListResolver,
+      user  : UserResolver
+    }
   }
 ];
 

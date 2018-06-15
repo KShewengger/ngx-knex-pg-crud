@@ -1,3 +1,64 @@
-<p>
-  user-list works!
-</p>
+<div class="wrapper mdl-cell--12-col">
+  <div class="container">
+
+    <h4>User List</h4>
+    <hr>
+    <p>User Knex PostgreSQL Crud Example</p><br/>
+
+    <div class="mdl-typography--text-right">
+      <button mdl-button
+              mdl-button-type="mini-fab"
+              mdl-colored="primary"
+              [routerLink]="['./new']">
+        <mdl-icon>add</mdl-icon>
+      </button>
+    </div>
+
+    <div class="table-wrapper">
+      <table class="mdl-data-table mdl-shadow--2dp">
+        <thead>
+        <tr>
+          <th class="mdl-data-table__cell--non-numeric">First Name</th>
+          <th>Last Name</th>
+          <th>Email Address</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Birthday</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td data-label="First Name">{{ user.firstName }}</td>
+            <td data-label="Last Name">{{ user.lastName }}</td>
+            <td data-label="Email Address">{{ user.emailAddress }}</td>
+            <td data-label="Age">{{ user.age }}</td>
+            <td data-label="Gender">{{ user.gender}}</td>
+            <td data-label="Birthday">{{ user.birthday | date: 'mediumDate'}}</td>
+
+            <td data-label="Actions">
+              <button class="bg-orange text-white"
+                      mdl-button
+                      mdl-ripple
+                      mdl-button-type="raised"
+                      mdl-colored="primary"
+                      [routerLink]="['./', user.id]">
+                <i class="material-icons">edit</i>
+              </button>
+              <button class="bg-orange text-white"
+                      mdl-button
+                      mdl-ripple
+                      mdl-button-type="raised"
+                      mdl-colored="primary">
+                <i class="material-icons">delete</i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div><!-- END .table-wrapper -->
+  </div>
+
+</div>
+
+

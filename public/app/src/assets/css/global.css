@@ -1,0 +1,145 @@
+/* Font */
+@font-face {
+  font-family: 'Raleway-Light';
+  src: url('../fonts/Raleway-Light.ttf');
+}
+
+@font-face {
+  font-family: 'Raleway-Medium';
+  src: url('../fonts/Raleway-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Raleway-Bold';
+  src: url('../fonts/Raleway-SemiBold.ttf');
+}
+
+/* Global */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #11BBFB;
+  font-family: 'Raleway-Light', 'sans-serif';
+}
+
+
+/* Wrapper & Container */
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: -8px;
+}
+
+
+@media screen and (max-width: 784px) {
+  .container {
+    width: 80%;
+    margin-top: 500px;
+    margin-bottom: 45px;
+  }
+}
+.container {
+  background: white;
+  padding: 50px;
+  border: 1px solid #80808047;
+  border-radius: 5px;
+}
+
+.container > h4 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.container hr {
+  margin-top: 0;
+  margin-bottom: 1px;
+  position: relative;
+}
+
+.container p { font-size: 13px; }
+
+/* Button */
+.mdl-button--primary.mdl-button--primary.mdl-button--raised,
+.mdl-button--primary.mdl-button--primary.mdl-button--fab {
+  background-color: #009DE9;
+}
+
+/* Table */
+.mdl-data-table {
+  display: table;
+  width: 100%;
+}
+
+.table-wrapper {
+  border: 1px solid #c5c5c5;
+  margin-top: 10px;
+}
+
+.mdl-data-table th, .mdl-data-table td { text-align: left; }
+
+.mdl-data-table tr > td {
+  white-space: normal;
+  height: auto;
+}
+
+.mdl-data-table i { font-size: 14px; }
+
+.mdl-data-table tr > td:last-child button,
+.mdl-data-table tr > td:nth-last-child(2) button {
+  height: 28px;
+  line-height: 1;
+  min-width: 35px;
+  max-width: 100%;
+  padding: 0;
+}
+
+table p { font-size: 13px; }
+
+
+@media only screen and (max-width: 784px) {
+  thead, .table-arrows { display: none; }
+
+  .table-wrapper { overflow-x: scroll; }
+
+  table, tbody, th, td, tr { display: block; }
+
+  .mdl-data-table tbody tr { height: auto; }
+
+  .mdl-data-table tbody tr:nth-child(odd) { background-color: #eee; }
+
+  .mdl-data-table td,
+  .mdl-data-table td:first-of-type { padding-left: 50%; }
+
+  .mdl-data-table tr > td:last-child { border-bottom-color: black; }
+
+  .mdl-data-table tbody > tr:last-child > td:last-child { border-bottom-color: inherit; }
+
+  .mdl-data-table td:before {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding: 6px 18px 0;
+    white-space: nowrap;
+    content: attr(data-label);
+    text-align: left;
+    color: rgba(0, 0, 0, 0.54118);
+    font-weight: bold;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+  }
+
+  .mdl-data-table td:last-of-type { padding-right: 18px; }
+}
