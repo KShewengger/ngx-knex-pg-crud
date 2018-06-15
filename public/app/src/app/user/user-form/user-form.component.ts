@@ -88,8 +88,9 @@ export class UserFormComponent implements OnInit {
     this.isProcessing = true;
     
     const action = this.userId ? "update" : "add";
+    const save   = this.userId ? this.userService.updateUser(this.userId, user) : this.userService.addNewUser(user);
     
-    this.showSnackbar(action);
+    save.subscribe(response => this.showSnackbar(action));
   }
   
   showSnackbar(action: string): void {
@@ -98,11 +99,16 @@ export class UserFormComponent implements OnInit {
     this.mdlSnackbarService.showSnackbar({
       message: message,
       timeout: 1000,
+      closeAfterTimeout: true,
       action: {
         handler: () => {},
         text: 'X'
       }
-    }).subscribe(() => this.isProcessing = false);
+    }).subscribe(() => {
+      this.isProcessing = false;
+      
+      setTimeout(() => this.router.navigate(["../"]), 500);
+    });
   }
 
 }

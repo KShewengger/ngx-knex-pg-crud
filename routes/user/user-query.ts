@@ -23,7 +23,7 @@ export async function addUserQuery(body: Account, res: Response, next: NextFunct
   .insert(body)
   .catch(err => next(err));
   
-  res.sendStatus(201);
+  res.status(201).send({});
 }
 
 
@@ -43,7 +43,7 @@ export async function updateUserQuery(id: string, body: Account, res: Response, 
   .update(body)
   .catch(err => next(err));
   
-  res.sendStatus(200);
+  res.status(200).send({});
 }
 
 
