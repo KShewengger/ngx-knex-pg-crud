@@ -97,16 +97,16 @@ export class UserFormComponent implements OnInit {
     const message = action === "add" ? "Successfully Added User" : "Successfully Updated";
     
     this.mdlSnackbarService.showSnackbar({
-      message: message,
-      timeout: 1000,
-      closeAfterTimeout: true,
-      action: {
+      message           : message,
+      timeout           : 1000,
+      closeAfterTimeout : true,
+      action            : {
         handler: () => {},
         text: 'X'
       }
-    }).subscribe(() => {
+    })
+    .subscribe(() => {
       this.isProcessing = false;
-      
       setTimeout(() => this.router.navigate(["../"]), 500);
     });
   }
