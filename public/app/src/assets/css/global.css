@@ -30,6 +30,7 @@ body {
   font-family: 'Raleway-Light', 'sans-serif';
 }
 
+.align-middle { vertical-align: middle; }
 
 /* Wrapper & Container */
 .wrapper {
@@ -45,8 +46,7 @@ body {
 
 @media screen and (max-width: 784px) {
   .container {
-    width: 80%;
-    margin-top: 500px;
+    width: 80% !important;
     margin-bottom: 45px;
   }
 }
@@ -69,6 +69,16 @@ body {
 }
 
 .container p { font-size: 13px; }
+
+/* Textfield */
+.mdl-textfield { width: 100%; }
+
+.mdl-list {
+  position: absolute;
+  z-index: 999;
+  width: 100%;
+  background: white;
+}
 
 /* Button */
 .mdl-button--primary.mdl-button--primary.mdl-button--raised,

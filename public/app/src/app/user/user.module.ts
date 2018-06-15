@@ -12,6 +12,7 @@ import { UserFormComponent } from "./user-form/user-form.component";
 import { UserListComponent } from "./user-list/user-list.component";
 
 import { UserService } from "./user.service";
+import { ErrorHandlerService } from "../shared/error-handler.service";
 import { UserResolver, UserListResolver } from "./user-resolver.service";
 
 import { UserRouting } from "./user-routing.module";
@@ -36,7 +37,8 @@ import { UserRouting } from "./user-routing.module";
   providers: [
     UserService,
     UserResolver,
-    UserListResolver
+    UserListResolver,
+    ErrorHandlerService,
   ]
 })
 export class UserModule { }

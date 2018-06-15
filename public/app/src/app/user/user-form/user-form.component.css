@@ -1,0 +1,29 @@
+.container {
+  width: 500px;
+  margin-top: 22px;
+}
+
+#birthday { padding-top: 0; }
+
+button, button:hover {
+  border: 1px solid #009DE9;
+  color: white;
+  background: #009DE9;
+  width: 30%;
+}
+
+button[disabled] {
+  border: 1px solid rgba(0,0,0,.26);
+  color: gray;
+}
+
+#success-message { font-family: 'Raleway-Bold'; }
+
+#success-message .material-icons {
+  vertical-align: middle;
+  font-size: 17px;
+  position: relative;
+  top: -1px;
+  color: green;
+  font-weight: bold;
+}
